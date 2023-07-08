@@ -11,20 +11,6 @@
 
 //typedef struct Creditos ;
 
-struct  Creditos{
-    int orden;
-    char nombreCliente[30];
-    float importe;
-    char tipoDeCredito;
-    int dia ;
-    int mes ;
-    int ano ;
-    int NroCuotas;
-    float importeCuotas;
-    float IVA;
-    float totalCuota;
-    int activo;
-};
 
 int main()
 {
@@ -34,23 +20,13 @@ int main()
     FILE *ArchivoCreado= NULL;
     char archivoBinario[30]= "creditos.dat";
     char yesno;
-    //struct Creditos * aux;
+
 
     do{
-        printf("\n\n\t\t\t\t\t\tBienvenido al menu Principal\n");
-        printf("\n\n\t\t\t\t\tIngrese el numero de la accion que desea seleccionar\n");
-        printf("\n\n\t\t\t\t\t\t1:Listar texto.Mostrara en pantalla el archivo de texto\n");
-        printf("\t\t\t\t\t\t2:Crear un nuevo archivo binario\n");
-        printf("\t\t\t\t\t\t3:Migrar los datos del archivo de texto hacia el archivo binario.\n");
-        printf("\t\t\t\t\t\t4:Listar los datos de los clientes\n");
-        printf("\t\t\t\t\t\t5:Agregar un nuevo cliente\n");
-        printf("\t\t\t\t\t\t6:Buscar un cliente en nuestro archivo binario\n");
-        printf("\t\t\t\t\t\t7:Modificar el tipo de credito de un cliente seleccionado\n");
-        printf("\t\t\t\t\t\t8:Dar de baja al cliente seleccionado\n");
-        printf("\t\t\t\t\t\t0:Salir del sistema\n");
+
+        menu();//FUNCION QUE PRINTEA EL MENU DE OPCIONES
 
         scanf("%d",&opcion);
-
 
     switch(opcion){
         case 1: system("cls");
@@ -186,7 +162,7 @@ int main()
 
         }
 
-        if(opcion> 8){
+        if(!isdigit(opcion)|| opcion > 9 || opcion < 0){
             system("cls");
             printf("\n\n\n\n\t\t\t\t\tA elegido una opcion incorrecta.Vuelva a elegir\n\n");
             system("pause");
