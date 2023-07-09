@@ -40,6 +40,35 @@ struct CreditoAuxiliar{
     int activo;
 };
 
+//ERRORES
+void validarIngreso(char opcionChar[],int *opcion){
+    int esNumero = 1;
+    do{
+        esNumero = 1;
+        fflush(stdin);
+        gets(opcionChar);
+        for (int i = 0; i < strlen(opcionChar); i++) {
+            if (!isdigit(opcionChar[i])) {
+                esNumero = 0;
+                break;
+            }
+        }
+
+
+        if (!esNumero) {
+            printf("Opción inválida. Ingrese un número.\n");
+        } else {
+            *opcion = atoi(opcionChar); // Convertir la cadena a un entero
+            // Validar la opción ingresada
+            if ( (*opcion < 0) || (*opcion > 8) ) {
+                printf("Opción inválida. Ingrese un número válido.\n");
+            }
+        }
+
+    } while( (*opcion < 0) || (*opcion > 8) || !esNumero );
+}
+
+
 //PUNTO 4:LEER ARCHIVO
 void leerDatosCSV(FILE *pArchivo) {
     pArchivo=fopen("prestamos.csv","r");
@@ -239,7 +268,7 @@ void imprimirTodo(FILE *ArchivoCreado,char archivoBinario[]){
       struct CreditoAuxiliar existente;//VARIABLE STRUCT DONDE VOY A GUARDAR LOS DATOS DEL ARCHIVO BINARIO PARA LUEGO IMPRIMIRLOS
        // LEO Y DESCARTO LA PRIMER LINEA
             printf("+-------+------------------+------------------+---------+--------------+-----+------+-------------+--------------+---------+----------+--------+\n");
-            printf("| Orden | Nombre           | Apellido         | Importe | Tipo         | Dia | Mes  | Anio        | Num. Cuotas  | Imp.    | Total    | Activo |\n");
+            printf("| Orden |      Nombre      |     Apellido     | Importe |     Tipo     | Dia | Mes  |     Anio    | Num. Cuotas  |   Imp.  |   Total  | Activo |\n");
             printf("+-------+------------------+------------------+---------+--------------+-----+------+-------------+--------------+---------+----------+--------+\n");
         fread(&existente, sizeof(struct CreditoAuxiliar), 1, ArchivoCreado);
 
@@ -353,8 +382,7 @@ void agregarCliente(FILE *archivoCreado,char archivoBinario[]){
                 if (existente.orden == nuevo.orden) {
                     fclose(archivoCreado);
                     printf("\n\n\t\t\t\t\tError: Ya existe un registro con el mismo numero de orden.\n");
-                    //printf("\n\n\t\t\t\t\tIngrese nuevamente numero de orden: ");
-                    //scanf("%d",&nuevo.orden);
+
                     flag=1;
                 }
 

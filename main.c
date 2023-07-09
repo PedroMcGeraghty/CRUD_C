@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <time.h>
 #include "funciones.h"
+#include "interfaz.h"
 #define N 100
 #define n 20
 
@@ -12,9 +13,8 @@
 //typedef struct Creditos ;
 
 
-int main()
-{
-    char tipoCredito[n];
+int main(){
+    char tipoCredito[n],opcionChar[n];
     int opcion,opcion2,metodoBusqueda;
     FILE *pArchivo = NULL;
     FILE *ArchivoCreado= NULL;
@@ -23,10 +23,8 @@ int main()
 
 
     do{
-
         menu();//FUNCION QUE PRINTEA EL MENU DE OPCIONES
-
-        scanf("%d",&opcion);
+        validarIngreso(opcionChar,&opcion);
 
     switch(opcion){
         case 1: system("cls");
@@ -162,14 +160,11 @@ int main()
 
         }
 
-        if(!isdigit(opcion)|| opcion > 9 || opcion < 0){
-            system("cls");
-            printf("\n\n\n\n\t\t\t\t\tA elegido una opcion incorrecta.Vuelva a elegir\n\n");
-            system("pause");
-            system("cls");
 
-        }
-    }while(((opcion > 1) || (opcion < 9))&& (opcion!=0));
+
+
+        fflush(stdin);
+    }while(opcion != 0);
     system("cls");
     printf("\n\n\n\n\t\t\t\t\tUsted a finalizado el sistema\n\n\t\t\t\t\t");
     system("pause");
