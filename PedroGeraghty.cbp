@@ -31,12 +31,20 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="errores.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="errores.h" />
 		<Unit filename="funciones.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="funciones.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="interfaz.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="interfaz.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

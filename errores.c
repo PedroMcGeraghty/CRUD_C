@@ -10,8 +10,21 @@
 #define N 100
 #define n 20
 
+void validarIngreso(int *opcion){
+    system("cls");
+    do{
+        menu();
+        if ( (*opcion < 0) || (*opcion > 8) ) {
+            printf("\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tOpcion invalida. Ingrese un numero valido.\n");
+            scanf("%d",opcion);
+        }
+            system("cls");
+
+    }while( (*opcion < 0) || (*opcion > 8) );
+}
+
 //FUNCION QUE VALIDA EL INGRESO DE UN NUMERO
-void validarIngreso(char opcionChar[],int *opcion){
+void validarDigito(char opcionChar[],int *opcion) {
     int esNumero = 1;
     do{
         esNumero = 1;
@@ -26,14 +39,10 @@ void validarIngreso(char opcionChar[],int *opcion){
 
 
         if (!esNumero) {
-            printf("Opción inválida. Ingrese un número.\n");
+            printf("\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tOpcion invalida. Ingrese un numero.\n");
         } else {
-            *opcion = atoi(opcionChar); // Convertir la cadena a un entero
-            // Validar la opción ingresada
-            if ( (*opcion < 0) || (*opcion > 8) ) {
-                printf("Opción inválida. Ingrese un número válido.\n");
-            }
+            *opcion = atoi(opcionChar); // CONVERTIR LA CADENA A UN ENTERO
         }
 
-    } while( (*opcion < 0) || (*opcion > 8) || !esNumero );
+    } while( !esNumero );
 }

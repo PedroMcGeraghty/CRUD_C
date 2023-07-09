@@ -25,7 +25,9 @@ int main(){
 
     do{
         menu();//FUNCION QUE PRINTEA EL MENU DE OPCIONES
-        validarIngreso(opcionChar,&opcion);
+        validarDigito(opcionChar,&opcion);
+        validarIngreso(&opcion);
+
 
     switch(opcion){
         case 1: system("cls");
@@ -67,19 +69,15 @@ int main(){
 
                         do {
                             do{
-                                printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tIngrese el numero de la lista que desea seleccionar\n");
-                                printf("\n\n\t\t\t\t\t\t1: Listar todos (activos y inactivos)\n");
-                                printf("\t\t\t\t\t\t2: Solo los activos\n");
-                                printf("\t\t\t\t\t\t3: El ingreso por teclado de un tipo de crédito\n");
-                                printf("\t\t\t\t\t\t0: volver al menu principal\n\t\t\t\t\t\t\t");
+
+                                menu2();//FUNCION QUE MUESTRA EL MENU DEL PUNTO 4
+                                if(opcion2 <0 || opcion2 >4){
+                                    printf("\n\n\t\t\t\t\t\t\t\t\t\t\t\tA ingresado una opcion incorreta, intente nuevamente\n\n");
+                                }
                                 scanf("%d", &opcion2);
                                 system("cls");
 
-                                if((opcion2 !=1) && (opcion2 !=2) && (opcion2 !=3) && (opcion2 !=0)){
-                                    printf("\t\tA ingresado una opcion incorreta, intente nuevamente\n\n");
-                                }
-
-                            }while((opcion2 !=1) && (opcion2 !=2) && (opcion2 !=3) && (opcion2 !=0) );
+                            }while( (opcion2 <0) || (opcion2 >4) );
 
                             switch (opcion2) {
                                 case 1:printf("Listando todos los clientes (activos e inactivos)\n");
