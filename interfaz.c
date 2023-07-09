@@ -5,6 +5,8 @@
 #include <ctype.h>
 #include <time.h>
 #include "funciones.h"
+#include "interfaz.h"
+#include "errores.h"
 #define N 100
 #include <stdbool.h>
 
@@ -23,3 +25,4 @@ void menu() {
         printf("\t\t\t\t\t\t\t\t\t\t\t\t\t8:Dar de baja al cliente seleccionado\n");
         printf("\t\t\t\t\t\t\t\t\t\t\t\t\t0:Salir del sistema\n");
 }
+

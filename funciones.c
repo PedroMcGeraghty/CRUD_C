@@ -40,33 +40,7 @@ struct CreditoAuxiliar{
     int activo;
 };
 
-//ERRORES
-void validarIngreso(char opcionChar[],int *opcion){
-    int esNumero = 1;
-    do{
-        esNumero = 1;
-        fflush(stdin);
-        gets(opcionChar);
-        for (int i = 0; i < strlen(opcionChar); i++) {
-            if (!isdigit(opcionChar[i])) {
-                esNumero = 0;
-                break;
-            }
-        }
 
-
-        if (!esNumero) {
-            printf("Opción inválida. Ingrese un número.\n");
-        } else {
-            *opcion = atoi(opcionChar); // Convertir la cadena a un entero
-            // Validar la opción ingresada
-            if ( (*opcion < 0) || (*opcion > 8) ) {
-                printf("Opción inválida. Ingrese un número válido.\n");
-            }
-        }
-
-    } while( (*opcion < 0) || (*opcion > 8) || !esNumero );
-}
 
 
 //PUNTO 4:LEER ARCHIVO
@@ -86,13 +60,15 @@ void leerDatosCSV(FILE *pArchivo) {
 
     fgets(linea,sizeof(linea),pArchivo); // LEE LA PRIMER LINEA Y LA DESCARTA YA QUE LA VOY A PRINTEAR YO
 
-    printf(" %s\t\t%s  \t\t%s\t%s\t\t%s  \t%s \t%s \t%s %s\n", "ORDEN", "NOMBRE", "IMPORTE", "TIPO CREDITO", "FECHA", "NUM.CUOTAS","IMP. CUOTA","IVA","TOTAL CUOTA");
+    printf("\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t %s\t\t%s  \t\t%s\t%s\t\t%s  \t%s \t%s \t%s %s\n", "ORDEN", "NOMBRE", "IMPORTE", "TIPO CREDITO", "FECHA", "NUM.CUOTAS","IMP. CUOTA","IVA","TOTAL CUOTA");
 
     while (fgets(linea,sizeof(linea),pArchivo)){
         leer(linea,&or,no,&im,tc,&di,&me,&an,&nc,&ic,&iv,&t);//PASO LAS VARIABLES A UNA FUNCION QUE VA A LEER LA PRIMER LINEA Y VA A IR UBICANDO EN CADA VARIABLE EL CAMPO CORRESPONDIENTE
-        //printf("________________________________________________________________________________________________________________________________\n");
-        printf("| \t%-4d   | %-16s  | %-8.2f | %-1s \t| %-2d | %-1d | %-5d |  %9d | %-9.2f | %-7.2f | %10.2f |\n", or, no, im, tc, di, me, an, nc, ic, iv, t);
-        printf("________________________________________________________________________________________________________________________________\n");
+
+        printf("\t\t\t\t\t\t\t| \t%-4d   | %-16s  | %-8.2f | %-1s \t| %-2d | %-1d | %-5d |  %9d | %-9.2f | %-7.2f | %10.2f |\n", or, no, im, tc, di, me, an, nc, ic, iv, t);
+        printf("\t\t\t\t\t\t\t________________________________________________________________________________________________________________________________\n");
+
+
     }
     fclose(pArchivo);
 
@@ -239,7 +215,7 @@ void migrar(FILE *pArchivo, FILE *archivoCreado , char *archivoBinario){
 
         fclose(archivoCreado);
 
-        printf("\n\n\n\n\n\n\n\t\t\t\t\t\t*Datos migrados correctamente*\n\n\n\n\n");
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t*Datos migrados correctamente*\n\n\n\n\n");
     }
     else{
         printf("Error en la extracci%cn de datos\n", 162);

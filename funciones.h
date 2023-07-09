@@ -1,7 +1,7 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
-void validarIngreso(char *opcionChar,int *opcion);
+
 //FUNCION QUE ABRE UN ARCHIVO DE TEXTO Y LO MUESTRA EN PANTALLA
 void leerDatosCSV(FILE *pArchivo);
 void leer(char *linea,int *orden, char *nombre,float *importe,char *tipoCredito,int *dia, int *mes ,int *ano ,int *nroCutoas, float *importeCuotas ,float *IVA, float *totalCuotas);

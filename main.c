@@ -6,6 +6,7 @@
 #include <time.h>
 #include "funciones.h"
 #include "interfaz.h"
+#include "errores.h"
 #define N 100
 #define n 20
 
@@ -34,9 +35,9 @@ int main(){
 
               do{
 
-                  printf("\n\n\t\t\t\t\t\tCREACION DE ARCHIVO BINARIO\n\n");
-                  printf("\t\t\t\tSe creara un archivo binario de nombre 'creditos.dat' en la carpeta 'BINARIOS'. \n");
-                  printf("\n\n\t\t\t\t\t\tDesea continuar? [Y/N] : ");
+                  printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCREACION DE ARCHIVO BINARIO\n\n");
+                  printf("\n\n\t\t\t\t\t\t\t\t\t\tSe creara un archivo binario de nombre 'creditos.dat' en la carpeta 'BINARIOS'. \n");
+                  printf("\n\n\t\t\t\t\t\t\t\t\t\tDesea continuar? [Y/N] : ");
                   fflush(stdin);
                   scanf("%c",&yesno);
                  system("cls");
@@ -49,12 +50,12 @@ int main(){
 
                   }else if((yesno== 'n')||(yesno== 'N')){
                         system("cls");
-                        printf("\n\n\n\n\t\t\t\t\t\tNo se creo el archivo\n");
+                        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tNo se creo el archivo\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                         system("pause");
                         system("cls");
                         break;
                   }else{
-                        printf("\n\n\t\t\t\t\tHa ingresado una opcion incorrecta elija nuevamente\n\n");
+                        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tHa ingresado una opcion incorrecta elija nuevamente\n\n");
                   }
                   }while(((yesno!= 'y')||(yesno!= 'Y')) && ((yesno!= 'n')||(yesno!= 'N')));
               break;
@@ -66,7 +67,7 @@ int main(){
 
                         do {
                             do{
-                                printf("\n\n\t\t\t\t\tIngrese el numero de la lista que desea seleccionar\n");
+                                printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tIngrese el numero de la lista que desea seleccionar\n");
                                 printf("\n\n\t\t\t\t\t\t1: Listar todos (activos y inactivos)\n");
                                 printf("\t\t\t\t\t\t2: Solo los activos\n");
                                 printf("\t\t\t\t\t\t3: El ingreso por teclado de un tipo de crédito\n");
