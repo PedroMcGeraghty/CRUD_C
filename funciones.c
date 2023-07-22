@@ -239,12 +239,11 @@ void imprimirTodo(FILE *ArchivoCreado,char archivoBinario[]){
       struct CreditoAuxiliar existente;//VARIABLE STRUCT DONDE VOY A GUARDAR LOS DATOS DEL ARCHIVO BINARIO PARA LUEGO IMPRIMIRLOS
        // LEO Y DESCARTO LA PRIMER LINEA
             printf("+-------+------------------+------------------+---------+--------------+-----+------+-------------+--------------+---------+----------+--------+\n");
-            printf("| Orden |      Nombre      |     Apellido     | Importe |     Tipo     | Dia | Mes  |     Anio    | Num. Cuotas  |   Imp.  |   Total  | Activo |\n");
+            printf("| Orden |      Nombre      |     Apellido     | Importe |     Tipo     | Dia |  Mes |     Anio    | Num. Cuotas  |   Imp.  |   Total  | Activo |\n");
             printf("+-------+------------------+------------------+---------+--------------+-----+------+-------------+--------------+---------+----------+--------+\n");
         fread(&existente, sizeof(struct CreditoAuxiliar), 1, ArchivoCreado);
 
           while (fread(&existente, sizeof(struct CreditoAuxiliar), 1, ArchivoCreado)) {
-
 
             printf("| %-5d | %-16s | %-16s | %-7.2f | %-4s | %-3d | %-4s | %-11d | %-12d | %-7.2f | %-8.2f | %-6d |\n", existente.orden, existente.nombre, existente.apellido, existente.importe, existente.tipoDeCredito, existente.dia, existente.mesCad, existente.ano, existente.NroCuotas, existente.importeCuotas, existente.totalCuota, existente.activo);//LEO EL BINARIO EN UNA LINEA CON MI STRUCT
             printf("+-------+------------------+------------------+---------+--------------+-----+------+-------------+--------------+---------+----------+--------+\n");

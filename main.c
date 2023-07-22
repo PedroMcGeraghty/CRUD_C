@@ -65,16 +65,14 @@ int main(){
                 migrar(pArchivo,ArchivoCreado,archivoBinario);
                 break;
         case 4: system("cls");
-
-
                         do {
                             do{
-
                                 menu2();//FUNCION QUE MUESTRA EL MENU DEL PUNTO 4
                                 if(opcion2 <0 || opcion2 >4){
                                     printf("\n\n\t\t\t\t\t\t\t\t\t\t\t\tA ingresado una opcion incorreta, intente nuevamente\n\n");
                                 }
-                                scanf("%d", &opcion2);
+                                //scanf("%d", &opcion2);
+                                validarDigito(opcionChar,&opcion2);
                                 system("cls");
 
                             }while( (opcion2 <0) || (opcion2 >4) );
