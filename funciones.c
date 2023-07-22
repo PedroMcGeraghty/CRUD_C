@@ -124,7 +124,7 @@ void crearArchivo(FILE *ArchivoCreado,char archivoBinario[] ){
     ArchivoCreado =fopen(archivoBinario, "w");
       if(ArchivoCreado != NULL){
         system("cls");
-        printf("\n\n\n\n\n\n\n\t\t\t\t\t\t*Archivo creado exitosamente*\n\n\n");
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t*Archivo creado exitosamente*\n\n\n");
         fclose(ArchivoCreado);
 
     }
@@ -168,16 +168,12 @@ void migrar(FILE *pArchivo, FILE *archivoCreado , char *archivoBinario){
         while(!feof(pArchivo)){
             leer(linea,&or,no,&im,tc,&di,&me,&an,&nc,&ic,&iv,&t);
 
-//    **PASAR LAS VARIABLES LEIDAS DEL CSV A NUESTRO STRUCT*
-//    **HAY VARIABLES QUE SE PROCESAN ANTES DE IR AL STRUCT
-
+            //**PASAR LAS VARIABLES LEIDAS DEL CSV A NUESTRO STRUCT*
+            //**HAY VARIABLES QUE SE PROCESAN ANTES DE IR AL STRUCT
             aux.orden=or;
 
-            //MAYUSCULIZAR VARIABLES
-
-            mayusculizador(no);
+            //MAYUSCULIZAR VARIABLE TIPO DE CREDITO
             mayusculizador(tc);
-
 
             //DIVIDIR NOMBRES
             char* token = strtok(no, " "); // Se utiliza el espacio como delimitador
@@ -190,7 +186,9 @@ void migrar(FILE *pArchivo, FILE *archivoCreado , char *archivoBinario){
                         strcpy(aux.apellido, token); // Copiar el segundo token (apellido) en la variable apellido
                     }
                 }
-
+            //MAYUSCULIZAR VARIABLE TIPO DE CREDITO
+            mayusculizador(aux.apellido);
+            //PASAR VARIABLES AL STRUCT
             aux.importe=im;
             strcpy(aux.tipoDeCredito,tc);
             aux.dia=di;
@@ -202,23 +200,20 @@ void migrar(FILE *pArchivo, FILE *archivoCreado , char *archivoBinario){
             aux.totalCuota=t;
             aux.activo=1;
 
-
-
             //IMPRIMIR EN EL ARCHIVO BINARIO UNA LINEA DE NUESTRO STRUCT
-            fwrite(&aux, sizeof(struct Creditos), 1, archivoCreado);
+            fwrite(&aux, sizeof(struct CreditoAuxiliar), 1, archivoCreado);
 
             fgets(linea,2000,pArchivo);
 
             }
 
         fclose(pArchivo);
-
         fclose(archivoCreado);
 
         printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t*Datos migrados correctamente*\n\n\n\n\n");
     }
     else{
-        printf("Error en la extracci%cn de datos\n", 162);
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tError en la extracci%cn de datos\n", 162);
     }
     system("pause");
     system("cls");

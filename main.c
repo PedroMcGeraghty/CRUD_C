@@ -57,7 +57,7 @@ int main(){
                         system("cls");
                         break;
                   }else{
-                        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tHa ingresado una opcion incorrecta elija nuevamente\n\n");
+                        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\tHa ingresado una opcion incorrecta elija nuevamente\n\n");
                   }
                   }while(((yesno!= 'y')||(yesno!= 'Y')) && ((yesno!= 'n')||(yesno!= 'N')));
               break;
